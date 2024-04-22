@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="style.css">
+    <title>My Page</title>
+    <style></style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome To My Page</h2>
+        <div class="intro-card">
+            <div class="left-column">
+              <img src="Avatar_Default.webp" alt="Avatar" class="avatar" id="avatarImage">
+              <input type="file" id="avatarInput" hidden onchange="uploadAvatar(event)">
+              <button onclick="document.getElementById('avatarInput').click()" class="upload-btn">Upload</button>
+            </div>
+            <div class="right-column">
+              <div class="info" id="name">
+                <span><b>Name</b>: Qin Geng</span>
+                <input type="text" placeholder="Enter name">
+              </div>
+              
+              <div class="info" id="email">
+                <span><b>Email</b>: gengqin50@gmail.com</span>
+                <input type="text" placeholder="Enter email">
+              </div>
+              
+              <div class="info" id="bio">
+                <span><b>Bio</b>: My name is Qin Geng and a graduate student in computer science. My interests to go web application, software development, and machine learning.</span>
+                <input type="text" placeholder="Enter bio">
+              </div>
+
+              <div class="button-container">
+                <button onclick="editInfo()" class="edit-btn">Edit</button>
+                <button onclick="saveInfo()" class="save-btn hidden">Save</button>
+              </div>
+            </div>
+        </div>
+        
+        <div class="exp-card">
+            <h3>Experience</h3>
+            <ul id="exp-list">
+                <!-- Default experience entry -->
+                <li class="exp-entry">
+                    <div class="entry-content">
+                        <p><b>San Francisco State Unversity</b><br>Teaching Assistant</p>
+                    </div>
+                    <button onclick="deleteExperience(this)" class="delete-btn">X</button>
+                </li>
+            </ul>
+            <button onclick="toggleAddExperienceForm()" class="add-btn">Add Education</button>
+        </div>
+
+        <!-- Experience Form Modal -->
+        <div id="experience-form-modal" class="modal hidden">
+            <div class="modal-content">
+                <span onclick="toggleAddExperienceForm()" class="close-btn">&times;</span>
+                <h2>Add Experience</h2>
+                <form id="add-experience-form">
+                    <label for="company-name">Company Name:</label>
+                    <input type="text" id="company-name" name="company-name" required><br>
+                    <label for="role">Role:</label>
+                    <input type="text" id="role" name="role" required><br>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="edu-card">
+            <h3>Education</h3>
+            <ul id="edu-list">
+                <!-- Default education entry -->
+                <li class="edu-entry">
+                    <div class="entry-content">
+                        <p><b>University of Illinois Urbana-Champaign</b><br>Relevant Coursework: Applied Machine Learning, Cloud Networking, Cloud Computing Applications, Practical
+                            Statistical Learning, Deep Learning for Healthcare, Interactive Computer Graphics</p>
+                    </div>
+                    <button onclick="deleteEducation(this)" class="delete-btn">X</button>
+                </li>
+            </ul>
+            <button onclick="toggleAddEducationForm()" class="add-btn">Add Education</button>
+        </div>
+
+        <!-- Education Form Modal -->
+        <div id="education-form-modal" class="modal hidden">
+            <div class="modal-content">
+                <span onclick="toggleAddEducationForm()" class="close-btn">&times;</span>
+                <h2>Add Education</h2>
+                <form id="add-education-form">
+                    <label for="university-name">University:</label>
+                    <input type="text" id="university-name" name="university-name" required><br>
+                    <label for="relevant-coursework">Relevant coursework:</label>
+                    <textarea id="relevant-coursework" name="relevant-coursework" required></textarea>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
